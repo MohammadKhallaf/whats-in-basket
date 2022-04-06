@@ -35,6 +35,7 @@ function resetAll() {
     $(this).text("");
   });
   $("#components__container li").removeClass("active");
+  renderPage(true)
 }
 
 function viewAll() {
@@ -47,6 +48,8 @@ function viewAll() {
       count++;
     }
   });
+  renderAllChoices(false)
+  $("#choices__lines .item").off("click")
 }
 
 /* <== Events ==> */

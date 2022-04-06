@@ -17,9 +17,13 @@ const availableChoicesContainer = $("#components__container ul");
 $(document).ready(() => {
   // hide the preloader
   $(".preloader__container").fadeOut();
-  renderAllChoices();
+  renderPage();
 });
 
+function renderPage(enabled = true) {
+  renderAllChoices(enabled);
+  renderChoicesList(enabled);
+}
 // prepare the audio files
 const correctAudio = $("<audio id=`correctAudio`>")
   .attr("src", "./assets/audio/correct.mp3")
@@ -29,7 +33,8 @@ const inCorrectAudio = $("<audio>")
   .get(0);
 
 //! DONE
-function renderAllChoices() {
+function renderAllChoices(enabled = true) {
+  console.log("PPPPPPPPP");
   const chElements = choices.map((item) => {
     const choiceElement = $("<li>").first();
     choiceElement
@@ -43,6 +48,11 @@ function renderAllChoices() {
         $("#components__container li").not(currentItem).removeClass("active");
         updateText(item);
       });
+    choiceElement.removeClass("deactive");
+    if (!enabled) {
+      choiceElement.addClass("deactive");
+      choiceElement.off("click");
+    }
     return choiceElement;
   });
   availableChoicesContainer.html(chElements);
@@ -52,13 +62,13 @@ function updateText(item) {
   $("#choices__lines .item").not(".selected").text(item.title);
 }
 
-{
+function renderChoicesList(enabled) {
   $("#choices__lines .item").on("click", function () {
     const activeChoice = $(".active", availableChoicesContainer);
     const title = activeChoice.attr("data-title");
     const answer = activeChoice.attr("data-ans") == "true";
 
-    if (answer) {
+    if (answer && $("#choices__lines .item").not(".selected").text != "") {
       console.log(correctAudio);
       correctAudio.play();
       $(this).addClass("selected");
@@ -67,7 +77,8 @@ function updateText(item) {
       updateText({ title: "" });
       updateSelectedItems(activeChoice);
       return;
+    } else if ($("#choices__lines .item").not(".selected").text == "") {
+      inCorrectAudio.play();
     }
-    inCorrectAudio.play();
   });
 }
