@@ -1,0 +1,36 @@
+#components__container {
+  padding: 75px;
+}
+#components__container ul {
+  display: grid;
+  gap: 20px;
+  justify-content: center;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  text-align: center;
+  /* display: grid;
+    gap:30px;
+    padding: 100px; */
+}
+/* < available options > */
+#components__container .item {
+  display: inline;
+  font-size: 28px;
+  font-weight: bold;
+  padding: 15px;
+  border: 1px solid blue;
+  border-radius: 15px;
+}
+
+#components__container .item:hover {
+  cursor: pointer;
+}
+
+#components__container .item.active {
+  background-color: blue;
+  color: white;
+}
+#components__container .item.deactive {
+  cursor: not-allowed;
+  background-color: white;
+  color: gray;
+}
