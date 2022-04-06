@@ -30,7 +30,7 @@ const correctAudio = $("<audio id=`correctAudio`>")
   .attr("src", "./assets/audio/correct.mp3")
   .get(0);
 const inCorrectAudio = $("<audio>")
-  .attr("src", "./assets/audio/inCorrect.mp3")
+  .attr("src", "./assets/audio/incorrect.mp3")
   .get(0);
 
 //! DONE
