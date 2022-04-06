@@ -9,26 +9,24 @@ const choices = [
   { title: "book", isCorrect: true, selected: false },
   { title: "pen", isCorrect: true, selected: false },
 ];
-let selectedChoice;
 const selectedItems = [];
 function updateSelectedItems(item) {
   selectedItems.push(item);
-  
 }
 const availableChoicesContainer = $("#components__container ul");
 $(document).ready(() => {
   // hide the preloader
   $(".preloader__container").fadeOut();
   renderAllChoices();
-
 });
 
 // prepare the audio files
-const correctAudio = $("<audio id=`correctAudio`>").attr(
-  "src",
-  "./assets/audio/correct.mp3"
-);
-const inCorrectAudio = $("<audio>").attr("src", "./assets/audio/inCorrect.mp3");
+const correctAudio = $("<audio id=`correctAudio`>")
+  .attr("src", "./assets/audio/correct.mp3")
+  .get(0);
+const inCorrectAudio = $("<audio>")
+  .attr("src", "./assets/audio/inCorrect.mp3")
+  .get(0);
 
 //! DONE
 function renderAllChoices() {
@@ -56,19 +54,20 @@ function updateText(item) {
 
 {
   $("#choices__lines .item").on("click", function () {
-    console.log("HHHHHHHHHH");
     const activeChoice = $(".active", availableChoicesContainer);
     const title = activeChoice.attr("data-title");
     const answer = activeChoice.attr("data-ans") == "true";
 
     if (answer) {
+      console.log(correctAudio);
+      correctAudio.play();
       $(this).addClass("selected");
       $(this).off("click");
       activeChoice.removeClass("active").css({ visibility: "hidden" });
       updateText({ title: "" });
-      updateSelectedItems(activeChoice)
+      updateSelectedItems(activeChoice);
+      return;
     }
-
-    console.log(selectedItems)
+    inCorrectAudio.play();
   });
 }
