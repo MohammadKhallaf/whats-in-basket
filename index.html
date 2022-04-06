@@ -6,24 +6,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Bascket Elements</title>
     <link rel="stylesheet" href="./styles/preloader.css" />
-    <link
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
-      rel="stylesheet"
-      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
-      crossorigin="anonymous"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-      crossorigin="anonymous"
-      async
-    ></script>
 
     <link rel="stylesheet" href="./style.css" async />
+    <link rel="stylesheet" href="./styles/options.css" />
     <link rel="stylesheet" href="./styles/popup.css" />
+    <link rel="stylesheet" href="./styles/lines.css" />
   </head>
-  <body class="container py-1">
-    <div>
+  <body style="transform: scale(0.8)">
+    <div class="page__content">
       <div class="preloader__container">
         <img id="preloader__img" src="./assets/images/Preloader_2.gif" />
       </div>
@@ -45,14 +35,15 @@
           /></a>
         </div>
       </header>
-      <main class="row p-0">
+      <div class="background"></div>
+      <main>
         <section id="components__container" class="col-lg-12 p-5">
           <ul class="container align-items-center"></ul>
         </section>
         <section id="choices__container" class="col-lg-12 p-0">
           <img id="choices__img" src="./assets/images/basket.png" />
           <div id="choices__lines" class="" style="color: blue">
-            <span
+            <div
               class="item"
               style="
                 grid-column-start: 1;
@@ -60,8 +51,8 @@
                 grid-row-start: 1;
                 grid-row-end: 2;
               "
-            ></span>
-            <span
+            ></div>
+            <div
               class="item"
               style="
                 grid-column-start: 1;
@@ -69,8 +60,8 @@
                 grid-row-start: 2;
                 grid-row-end: 3;
               "
-            ></span>
-            <span
+            ></div>
+            <div
               class="item"
               style="
                 grid-column-start: 2;
@@ -78,8 +69,8 @@
                 grid-row-start: 2;
                 grid-row-end: 3;
               "
-            ></span>
-            <span
+            ></div>
+            <div
               class="item"
               style="
                 grid-column-start: 3;
@@ -87,8 +78,8 @@
                 grid-row-start: 1;
                 grid-row-end: 2;
               "
-            ></span>
-            <span
+            ></div>
+            <div
               class="item"
               style="
                 grid-column-start: 3;
@@ -96,7 +87,7 @@
                 grid-row-start: 2;
                 grid-row-end: 3;
               "
-            ></span>
+            ></div>
           </div>
         </section>
       </main>
@@ -107,6 +98,7 @@
         <a role="button"
           ><img src="./assets/images/showAnswer.png" id="viewAll"
         /></a>
+        <div class="footer-background"></div>
       </footer>
       <script src="./scripts/jquery-3.6.0.min.js"></script>
       <script src="./buttons.js"></script>
