@@ -1,0 +1,21 @@
+.popup__container {
+  position: absolute;
+  top: 1rem;
+  bottom: 1rem;
+  right: 0;
+  left: 0;
+  z-index: 100;
+  background-color: white;
+  border: 5px orange solid;
+  border-radius: 1rem;
+  padding: 1rem;
+  display: none;
+}
+.popup__container .body {
+  border-radius: 1rem;
+  height: 100%;
+  overflow: scroll;
+}
+.popup__container.active {
+  display: block;
+}
