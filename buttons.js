@@ -34,6 +34,7 @@ function resetAll() {
     $(this).removeClass("selected");
     $(this).text("");
   });
+  $("#components__container li").removeClass("active");
 }
 
 function viewAll() {

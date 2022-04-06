@@ -5,16 +5,112 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Find Bascket Elements</title>
+    <link rel="stylesheet" href="./styles/preloader.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
+      crossorigin="anonymous"
+      async
+    ></script>
 
-    
     <link rel="stylesheet" href="./style.css" async />
+    <link rel="stylesheet" href="./styles/popup.css" />
   </head>
   <body class="container py-1">
-    <div class="preloader__container">
-      <img id="preloader__img" src="./assets/images/Preloader_2.gif" />
+    <div>
+      <div class="preloader__container">
+        <img id="preloader__img" src="./assets/images/Preloader_2.gif" />
+      </div>
+      <div class="popup__container">
+        <span id="popup__content"> </span>
+
+        <a role="button" style="position: absolute; top: 1rem; right: 1rem">
+          <img src="./assets/images/close_icon.png" id="close__popup" />
+        </a>
+      </div>
+      <header>
+        <h1>What’s in the basket? Choose and write.</h1>
+        <div class="btns">
+          <a role="button" id="img__Btn"
+            ><img src="./assets/images/resImg.png"
+          /></a>
+          <a role="button" id="help__Btn"
+            ><img src="./assets/images/help.png"
+          /></a>
+        </div>
+      </header>
+      <main class="row p-0">
+        <section id="components__container" class="col-lg-12 p-5">
+          <ul class="container align-items-center"></ul>
+        </section>
+        <section id="choices__container" class="col-lg-12 p-0">
+          <img id="choices__img" src="./assets/images/basket.png" />
+          <div id="choices__lines" class="" style="color: blue">
+            <span
+              class="item"
+              style="
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 1;
+                grid-row-end: 2;
+              "
+            ></span>
+            <span
+              class="item"
+              style="
+                grid-column-start: 1;
+                grid-column-end: 2;
+                grid-row-start: 2;
+                grid-row-end: 3;
+              "
+            ></span>
+            <span
+              class="item"
+              style="
+                grid-column-start: 2;
+                grid-column-end: 3;
+                grid-row-start: 2;
+                grid-row-end: 3;
+              "
+            ></span>
+            <span
+              class="item"
+              style="
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 1;
+                grid-row-end: 2;
+              "
+            ></span>
+            <span
+              class="item"
+              style="
+                grid-column-start: 3;
+                grid-column-end: 4;
+                grid-row-start: 2;
+                grid-row-end: 3;
+              "
+            ></span>
+          </div>
+        </section>
+      </main>
+      <footer>
+        <a role="button"
+          ><img src="./assets/images/reset.png" id="resetAll"
+        /></a>
+        <a role="button"
+          ><img src="./assets/images/showAnswer.png" id="viewAll"
+        /></a>
+      </footer>
+      <script src="./scripts/jquery-3.6.0.min.js"></script>
+      <script src="./buttons.js"></script>
+      <script src="./script.js"></script>
     </div>
-  
-    <script src="./scripts/jquery-3.6.0.min.js" ></script>
-    <script src="./script.js" type="text/javascript" ></script>
   </body>
 </html>
