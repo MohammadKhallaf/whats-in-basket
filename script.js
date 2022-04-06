@@ -10,6 +10,7 @@ const choices = [
   { title: "pen", isCorrect: true, selected: false },
 ];
 const selectedItems = [];
+const imgMarkSettings = { width: "50px", height: "auto", marginLeft: "auto" };
 function updateSelectedItems(item) {
   selectedItems.push(item);
 }
@@ -34,7 +35,6 @@ const inCorrectAudio = $("<audio>")
 
 //! DONE
 function renderAllChoices(enabled = true) {
-  console.log("PPPPPPPPP");
   const chElements = choices.map((item) => {
     const choiceElement = $("<li>").first();
     choiceElement
@@ -59,26 +59,69 @@ function renderAllChoices(enabled = true) {
 }
 
 function updateText(item) {
-  $("#choices__lines .item").not(".selected").text(item.title);
+  $("#choices__lines .item")
+    .not(".selected")
+    .text(item.title)
+    .css({ position: "relative" });
 }
 
 function renderChoicesList(enabled) {
   $("#choices__lines .item").on("click", function () {
     const activeChoice = $(".active", availableChoicesContainer);
-    const title = activeChoice.attr("data-title");
     const answer = activeChoice.attr("data-ans") == "true";
 
     if (answer && $("#choices__lines .item").not(".selected").text != "") {
-      console.log(correctAudio);
-      correctAudio.play();
-      $(this).addClass("selected");
-      $(this).off("click");
-      activeChoice.removeClass("active").css({ visibility: "hidden" });
-      updateText({ title: "" });
-      updateSelectedItems(activeChoice);
+      handleCorrectAnswer($(this), activeChoice);
+    } else if ($("#choices__lines .item").not(".selected").text().length < 1) {
       return;
-    } else if ($("#choices__lines .item").not(".selected").text == "") {
-      inCorrectAudio.play();
+    } else {
+      console.log($("#choices__lines .item").not(".selected").text == "");
+      handleWrongAnswer($(this));
     }
   });
 }
+
+function handleCorrectAnswer(item, activeChoice) {
+  const markImage = $("<img>").attr("src", "./assets/images/tikMark-small.png").fadeOut();
+  // .css(imgMarkSettings);
+  console.log(markImage);
+  correctAudio.play();
+  item.addClass("selected");
+  item.append(markImage);
+  markImage.fadeIn(500)
+  item.off("click");
+  activeChoice.removeClass("active").css({ visibility: "hidden" });
+  updateText({ title: "" });
+  updateSelectedItems(activeChoice);
+  return;
+}
+
+function handleWrongAnswer(item) {
+  inCorrectAudio.play();
+  const img = $("<img>")
+    .attr("src", "./assets/images/crossMark-small.png")
+    // .css(imgMarkSettings)
+    .fadeIn(200)
+    .fadeOut(300)
+    .fadeIn(250)
+    .fadeOut(500);
+  item.append(img);
+  setTimeout(()=>{
+
+    img.hide()
+  },1000)
+
+}
+
+// $(window).resize(() => {
+//   const docHeight = $(window).height();
+//   const docWidth = $(window).width();
+//   const bodyHeight = $("body").innerHeight();
+//   const bodyWidth = $("body").innerWidth();
+//   console.log($("body").width())
+//   const heightScale = bodyHeight / docHeight;
+//   const widthScale =  bodyWidth/ docWidth;
+//   console.log("H", heightScale);
+//   console.log("W", widthScale);
+//   $("body").css({transform:`scale(${heightScale})`,top:"0",left:"0"})
+// });

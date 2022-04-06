@@ -35,21 +35,26 @@ function resetAll() {
     $(this).text("");
   });
   $("#components__container li").removeClass("active");
-  renderPage(true)
+  renderPage(true);
 }
 
 function viewAll() {
   let count = 0;
   choices.forEach((item, index, array) => {
     if (item.isCorrect) {
+      const markImg = document.createElement("img");
+      markImg.id = index
+      markImg.src = "./assets/images/tikMark-small.png";
+      // markImg.style = imgMarkSettings;
       const lineItem = document.querySelectorAll("#choices__lines .item");
       lineItem[count].textContent = item.title;
       lineItem[count].classList.add("selected");
+      lineItem[count].append(markImg);
       count++;
     }
   });
-  renderAllChoices(false)
-  $("#choices__lines .item").off("click")
+  renderAllChoices(false);
+  $("#choices__lines .item").off("click");
 }
 
 /* <== Events ==> */
