@@ -19,3 +19,6 @@
 .popup__container.active {
   display: block;
 }
+#close__popup:hover{
+  cursor: pointer;
+}
