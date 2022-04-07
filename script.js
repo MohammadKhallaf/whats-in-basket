@@ -82,13 +82,15 @@ function renderChoicesList(enabled) {
 }
 
 function handleCorrectAnswer(item, activeChoice) {
-  const markImage = $("<img>").attr("src", "./assets/images/tikMark-small.png").fadeOut();
+  const markImage = $("<img>")
+    .attr("src", "./assets/images/tikMark-small.png")
+    .fadeOut();
   // .css(imgMarkSettings);
   console.log(markImage);
   correctAudio.play();
   item.addClass("selected");
   item.append(markImage);
-  markImage.fadeIn(500)
+  markImage.fadeIn(500);
   item.off("click");
   activeChoice.removeClass("active").css({ visibility: "hidden" });
   updateText({ title: "" });
@@ -106,11 +108,9 @@ function handleWrongAnswer(item) {
     .fadeIn(250)
     .fadeOut(500);
   item.append(img);
-  setTimeout(()=>{
-
-    img.hide()
-  },1000)
-
+  setTimeout(() => {
+    img.hide();
+  }, 1000);
 }
 
 // $(window).resize(() => {
@@ -124,4 +124,9 @@ function handleWrongAnswer(item) {
 //   console.log("H", heightScale);
 //   console.log("W", widthScale);
 //   $("body").css({transform:`scale(${heightScale})`,top:"0",left:"0"})
+// });
+
+// $("#github").hover(function () {
+//   console.log($(this))
+//   $(this).animate({transform:"scale(3)" },500);
 // });
