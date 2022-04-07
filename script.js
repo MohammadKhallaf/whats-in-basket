@@ -19,6 +19,7 @@ $(document).ready(() => {
   // hide the preloader
   $(".preloader__container").fadeOut();
   renderPage();
+  docScaling();
 });
 
 function renderPage(enabled = true) {
