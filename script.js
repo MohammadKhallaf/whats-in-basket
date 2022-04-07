@@ -112,21 +112,3 @@ function handleWrongAnswer(item) {
     img.remove();
   }, 1000);
 }
-
-// $(window).resize(() => {
-//   const docHeight = $(window).height();
-//   const docWidth = $(window).width();
-//   const bodyHeight = $("body").innerHeight();
-//   const bodyWidth = $("body").innerWidth();
-//   console.log($("body").width())
-//   const heightScale = bodyHeight / docHeight;
-//   const widthScale =  bodyWidth/ docWidth;
-//   console.log("H", heightScale);
-//   console.log("W", widthScale);
-//   $("body").css({transform:`scale(${heightScale})`,top:"0",left:"0"})
-// });
-
-// $("#github").hover(function () {
-//   console.log($(this))
-//   $(this).animate({transform:"scale(3)" },500);
-// });
