@@ -109,7 +109,7 @@ function handleWrongAnswer(item) {
     .fadeOut(500);
   item.append(img);
   setTimeout(() => {
-    img.hide();
+    img.remove();
   }, 1000);
 }
 
