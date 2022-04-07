@@ -1,7 +1,8 @@
 /* <--general styling--> */
 :root {
   --width: 60vw;
-  --base-size: 1200px;
+  --base-width: 1200px;
+  --base-height: 1000px;
   font-family: cursive;
 }
 *,
@@ -14,21 +15,17 @@
 }
 
 body {
-  /* display: flex;
-  justify-content: center;
-  align-items: center; */
-  /* height: 100vh; */
+
   position: absolute;
-  transform-origin: top;
+  transform-origin: top left;
   /* top:0; */
-  left: 0;
+  left: 10%;
   right: 0;
   /* bottom: 0; */
   margin: 0 auto;
   width: 1500px;
 }
 .page__content {
-  background-color: aquamarine;
   margin: 0 auto;
   height: 100vh;
 }
@@ -69,14 +66,14 @@ header h1 {
   transform: translateY(2.5%);
   background-color: blueviolet;
   width: 100%;
-  height: 95%;
+  height: 950px;
 }
 .footer-background {
   position: absolute;
   transform: translateY(-18px);
   background-color: rgb(127, 172, 255);
   width: 100%;
-  height: 15%;
+  height: calc(0.15 * var(--base-height));
   z-index: -1;
 }
 /* <--main content--> */
@@ -84,7 +81,7 @@ main {
   position: relative;
   width: 95%;
   margin: 0 auto;
-  height: 100%;
+  height: 1000px;
   position: relative;
   background-color: rgb(255, 255, 255);
   border: 5px hsl(40, 100%, 50%) solid;
@@ -94,17 +91,16 @@ main {
   flex-direction: column;
   flex-wrap: wrap;
 }
-main * {
-  /* min-height: 50%; */
-}
 
 #choices__img {
   position: absolute;
   bottom: 0;
   width: 100%;
 }
-
-/* < choices > */
-
-
-/* <--footer--> */
+#github {
+  position: absolute;
+  left: 10px;
+  bottom: 10px;
+  transform-origin: bottom left;
+  z-index: 5;
+}
